@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html2canvas</title>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/html2canvas.js"></script>	
+</head>
+<body>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Fusce in ipsum malesuada, congue neque nec, imperdiet justo.
+		Maecenas in justo eget orci pulvinar pretium et in odio.
+		Phasellus quis enim aliquam, placerat felis sed, rhoncus ante.
+		In viverra nisi vitae fermentum fermentum.
+		Suspendisse sit amet leo bibendum, rutrum lacus sed, eleifend diam.
+		Suspendisse eu sapien vitae nisl facilisis semper.
+		Integer non erat et quam vulputate semper.
+		Sed eget leo auctor, eleifend nibh sit amet, tincidunt odio.
+		In facilisis lacus in felis porta pellentesque.
+		Curabitur maximus sem a facilisis euismod.
+		Quisque rutrum tortor eu pharetra auctor.
+		Duis egestas ipsum non eleifend ultricies.
+		Phasellus in nisi sit amet sapien luctus ultricies.
+		Sed ornare ante sed odio pharetra, eget convallis nisl sollicitudin.
+		In nec turpis non mi pharetra rhoncus et sit amet lorem.
+		Nunc dictum elit ut eros rutrum, non bibendum nisl feugiat.
+		Vestibulum eu purus nec odio convallis commodo.
+		Maecenas venenatis justo vel arcu venenatis, nec dapibus nisl tempor.
+		Sed ut orci in orci fermentum viverra ac eget orci.
+	</p>    	
+	<p>
+		<img src="" id="img1" border="0" />
+	</p>
+	<button type="button" id="btnScreenshot">Screenshot</button>
+	<script>
+		$(document).ready(function()
+		{
+			$("#btnScreenshot").on('click', function(e)
+			{
+				html2canvas(document.body, {
+					taintTest: true,
+	  				onrendered: function(canvas) {
+	  					$("#img1").attr('src', canvas.toDataURL());
+	    				//document.body.appendChild(canvas);
+	  				}			
+	  			});
+			});	
+		});	
+	</script>
+</body>
+</html>
